@@ -1,0 +1,29 @@
+<div class="coins" *ngIf="loaded">
+  <div class="coins__wrapper">
+    <h1 class="coins__title">Bitcoin Rate</h1>
+
+    <div class="coins__container">
+      <div class="coins__date">Updated at: {{ lastUpdate }}</div>
+      <button class="coins__btn coins__btn--refresh" (click)="refresh()">
+        Refresh
+      </button>
+    </div>
+
+    <div class="coins__list">
+      <div class="coins__item" *ngFor="let currency of currencies">
+        <span>{{ currency.rate }} {{ currency.code }}</span>
+      </div>
+    </div>
+
+    <div class="coins__image-container">
+      <img
+        src="https://www.test.de/file/image/c4/86/8f0a91eb-d6eb-4436-87fe-e211faec6664-web/5773970_digitale-waehrung-bitcoin-5204320-0.jpg"
+        class="coins__image"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="spinner" *ngIf="loading">
+  <div class="spinner__circle"></div>
+</div>

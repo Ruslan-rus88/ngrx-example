@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
+import { AppComponent } from './app.component';
+import { CoinsModule } from './pages/coins/coins.module';
+import * as _effects from './shared/store/effects/index';
+import { reducers } from './shared/store/reducers/index';
+
+const effects = Object.values(_effects);
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule
+    CoinsModule,
+    BrowserModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
