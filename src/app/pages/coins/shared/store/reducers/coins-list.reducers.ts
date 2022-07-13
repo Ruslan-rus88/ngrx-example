@@ -40,6 +40,12 @@ export function coinsListReducer(
       };
     case coinsListActions.CLEAR_COINS_LIST:
       return initialState;
+    case coinsListActions.LOADING_STOPPED:
+      return {
+        ...state,
+        loaded: false,
+        loading: false,
+      };
     default:
       return state;
   }

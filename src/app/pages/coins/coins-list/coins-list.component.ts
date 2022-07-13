@@ -59,4 +59,8 @@ export class CoinsListComponent implements OnInit, OnDestroy {
   public refresh(): void {
     this.store.dispatch(new coinsListActions.LoadCoins());
   }
+
+  public clear(): void {
+    this.store.dispatch(new coinsListActions.ClearCoinsList());
+  }
 }

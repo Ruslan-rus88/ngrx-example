@@ -15,10 +15,12 @@
 
 .coins__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
 .coins__date {
+  flex: 1 1 auto;
   color: rgb(8, 8, 131);
 }
 
@@ -26,12 +28,28 @@
   padding: 10px 20px;
   cursor: pointer;
   border: none;
-  background-color: rgb(216, 50, 50);
   color: #fff;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
-.coins__btn:hover {
+
+.coins__actions .coins__btn {
+  margin-left: 5px;
+}
+
+.coins__btn--refresh {
+  background-color: rgb(18, 137, 184);
+}
+
+.coins__btn--refresh:hover {
+  background-color: rgb(29, 29, 247);
+}
+
+.coins__btn--clear {
+  background-color: rgb(216, 50, 50);
+}
+
+.coins__btn--clear:hover {
   background-color: rgb(179, 15, 15);
 }
 
@@ -43,6 +61,7 @@
   justify-content: center;
   gap: 10px;
 }
+
 .coins__item {
   padding: 10px;
   background-color: rgb(26, 105, 79);
@@ -50,7 +69,9 @@
   color: #fff;
 }
 
-.coins__image-container {
+.coins__msg {
+  text-align: center;
+  padding: 20px;
 }
 
 .coins__image {
@@ -67,6 +88,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
+  z-index: 2;
 }
 
 .spinner__circle {

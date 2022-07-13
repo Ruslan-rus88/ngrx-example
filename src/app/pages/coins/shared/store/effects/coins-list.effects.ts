@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { catchError, debounceTime, switchMap } from 'rxjs';
 
+import * as sharedStoreActions from 'src/app/shared/store/actions/shared-store.actions';
 import { CoinsListService } from '../../services/coins-list.service';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -45,7 +46,12 @@ export class CoinsListEffects {
         );
       }),
       catchError((e) => {
-        throw 'Something went wrong!!!!!!!!!!!!!!!!!';
+        return [
+          new coinsListActions.LoadingStopped(),
+          new sharedStoreActions.DisplayError(
+            'Something went wrong while loading coins list! Please try again later'
+          ),
+        ];
       })
     );
   });
